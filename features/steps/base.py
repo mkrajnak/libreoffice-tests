@@ -158,13 +158,14 @@ def enter_records_to_table(context):
         lambda x: x.roleName == 'table' and x.name == 'Table' and x.showing)[0]
     table[1].grabFocus()
     for record in TABLE_RECORDS_NON_ENGLISH:
-        typeText(record['id'])
+        #Converting strings to unicode,to work with F23
+        typeText(record['id'].decode('utf-8'))
         pressKey('\t')
-        typeText(record['name'])
+        typeText(record['name'].decode('utf-8'))
         pressKey('\t')
-        typeText(record['address'])
+        typeText(record['address'].decode('utf-8'))
         pressKey('\t')
-        typeText(record['phone'])
+        typeText(record['phone'].decode('utf-8'))
         pressKey('\t')
     sleep(10)
     context.app.get_current_window().findChildren(

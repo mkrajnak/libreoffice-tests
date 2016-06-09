@@ -44,4 +44,3 @@ Feature: LibreOffice Base tests
     * Open table "mytable" from main view
     * Enter non-english records to table
     Then Assert "non-english" records in table with name "mytable" in db "myDB1"
- 

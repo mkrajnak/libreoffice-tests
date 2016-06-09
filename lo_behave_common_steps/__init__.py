@@ -87,8 +87,7 @@ class LOApp(App):
         desktopConfig.read(output)
         return desktopConfig
 
-    def getName(self):
-        desktopConfig = self.parseDesktopFile()
+    def getName(self, desktopConfig):
         return desktopConfig.get('Desktop Entry', 'name')
 
     def kill(self):
