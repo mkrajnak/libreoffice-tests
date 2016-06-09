@@ -90,7 +90,9 @@ def file_open_on_path(context, path, name):
 
     full_path = os.path.join(path, name)
     context.app.dialog = context.app.get_current_window()
-    context.app.dialog.findChildren(lambda x: x.name == 'Type a file name')[0].click()
+    if not context.app.dialog.childLabelled('Location:').showing:
+        context.app.dialog.findChildren(lambda x: x.name == 'Type a file name')[0].click()
+
     context.app.dialog.childLabelled('Location:').set_text_contents(full_path)
     context.app.dialog.childLabelled('Location:').grab_focus()
     keyCombo('<Enter>')
