@@ -55,7 +55,7 @@ Feature: General actions
   @close_soffice_via_gnome_panel
   Scenario Outline: Close soffice via GnomeShell menu
     * Start soffice via menu with <component> parameter
-    * Click "Quit LibreOffice" in GApplication menu
+    * Quit LibreOffice via GApplication menu
     Then soffice shouldn't be running anymore
 
   Examples: Components

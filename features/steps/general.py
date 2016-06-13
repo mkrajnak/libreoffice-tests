@@ -240,3 +240,10 @@ def save_and_close_document(context, document_name, document_path, extension):
     context.app.get_current_window().findChildren(lambda x: x.roleName == 'push button')[-1].click()
     sleep(1)
     select_menuitem(context, "File -> Exit LibreOffice")
+
+
+@step(u'Quit LibreOffice via GApplication menu')
+def close_lo_via_GApplication_menu(context):
+    keyCombo('<Super_L>F10')
+    pos = GnomeShell().getApplicationMenuItem("Quit LibreOffice").position
+    click(pos[0]-20, pos[1])
